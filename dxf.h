@@ -26,9 +26,6 @@
 
 #include <dxf/dxf-config.h>
 
-#include "gdal.h"
-#include "ogr_srs_api.h"
-
 #include <QString>
 #include <QStringList>
 #include <QList>

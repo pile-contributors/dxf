@@ -23,7 +23,14 @@ macro    (dxfInit
     set(DXF_SOURCES
         "dxf.cc"
         "dxfwriter.cc")
+    set(DXF_QT_MODS
+        "Core")
+#    set(DXF_LIBS
+#        ${USERMSG_LIBRARY})
+    set(DXF_DEPENDENCIES
+        "UserMsg")
 
+message (STATUS "USERMSG_LIBRARY ------------  =${USERMSG_LIBRARY}")
     pileSetSources(
         "${DXF_INIT_NAME}"
         "${DXF_HEADERS}"

@@ -26,9 +26,6 @@
 
 #include <dxf/dxf-config.h>
 
-#include "gdal.h"
-#include "ogr_srs_api.h"
-
 #include <QString>
 #include <QStringList>
 #include <QList>
@@ -235,7 +232,32 @@ public:
     appendVertex (
             double x,
             double y,
-            double z);
+            double z = 0.0);
+
+    void
+    appendPoint (
+            const QString & layer,
+            double x,
+            double y,
+            double z = 0.0);
+
+    void
+    appendCircle (
+            const QString & layer,
+            double radius,
+            double x,
+            double y,
+            double z = 0.0);
+
+    void
+    appendText (
+            const QString & layer,
+            const QString & value,
+            double x,
+            double y,
+            double z = 0.0,
+            double height = 1.0,
+            double deg_rotation = 0);
 
 
 private:

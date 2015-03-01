@@ -768,6 +768,7 @@ bool DxfWriter::endPolyline(UserMsg &um)
                       "  8\n"
                       "0\n";
 
+        ++next_handle_;
         b_ret = statusOk (um);
         break;
     }
@@ -792,6 +793,80 @@ void DxfWriter::appendVertex (double x, double y, double z)
                << y << "\n"
                   " 30\n"
                << z << "\n";
+
+    ++next_handle_;
+}
+/* ========================================================================= */
+
+/* ------------------------------------------------------------------------- */
+void DxfWriter::appendPoint (
+        const QString &layer, double x, double y, double z)
+{
+    (*stream_) << "  0\n"
+                  "POINT\n"
+                  "  5\n"
+               << next_handle_ << "\n"
+                  "  8\n"
+               << layer << "\n"
+                  " 10\n"
+               << x << "\n"
+                  " 20\n"
+               << y << "\n"
+                  " 30\n"
+               << z << "\n";
+
+    ++next_handle_;
+}
+/* ========================================================================= */
+
+/* ------------------------------------------------------------------------- */
+void DxfWriter::appendCircle (
+        const QString &layer, double radius,
+        double x, double y, double z)
+{
+    (*stream_) << "  0\n"
+                  "CIRCLE\n"
+                  "  5\n"
+               << next_handle_ << "\n"
+                  "  8\n"
+               << layer << "\n"
+                  " 10\n"
+               << x << "\n"
+                  " 20\n"
+               << y << "\n"
+                  " 30\n"
+               << z << "\n"
+                  " 40\n"
+               << radius << "\n";
+
+    ++next_handle_;
+}
+/* ========================================================================= */
+
+/* ------------------------------------------------------------------------- */
+void DxfWriter::appendText (
+        const QString &layer, const QString &value,
+        double x, double y, double z, double height,
+        double deg_rotation)
+{
+    (*stream_) << "  0\n"
+                  "TEXT\n"
+                  "  5\n"
+               << next_handle_ << "\n"
+                  "  8\n"
+               << layer << "\n"
+                  " 10\n"
+               << x << "\n"
+                  " 20\n"
+               << y << "\n"
+                  " 30\n"
+               << z << "\n"
+                  " 40\n"
+               << height << "\n"
+                  "  1\n"
+               << value << "\n"
+                  " 50\n"
+               << deg_rotation << "\n";
 
     ++next_handle_;
 }

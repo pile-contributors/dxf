@@ -362,6 +362,57 @@ const QString s_template_ucs_table = "";
 const QString s_template_entities_section =
         "%ENTITIES%\n";
 
+const QString s_template_circle =
+        "  0\n"
+        "CIRCLE\n"
+        "  5\n"
+        "A5\n"
+        "  8\n"
+        "%LAYER%\n"
+        " 10\n"
+        "%VX%\n"
+        " 20\n"
+        "%VY%\n"
+        " 30\n"
+        "%VZ%\n"
+        " 40\n"
+        "%RADIUS%\n";
+
+const QString s_template_text =
+        "  0\n"
+        "TEXT\n"
+        "  5\n"
+        "A6\n"
+        "  8\n"
+        "%LAYER%\n"
+        " 10\n"
+        "%VX%\n"
+        " 20\n"
+        "%VY%\n"
+        " 30\n"
+        "%VZ%\n"
+        " 40\n"
+        "%HEIGHT%\n"
+        "  1\n"
+        "%TEXT%\n"
+        " 50\n"
+        "%ROT_DEGREES%\n";
+
+const QString s_template_point =
+        "  0\n"
+        "POINT\n"
+        "  5\n"
+        "A7\n"
+        "  8\n"
+        "%LAYER%\n"
+        " 10\n"
+        "%VX%\n"
+        " 20\n"
+        "%VY%\n"
+        " 30\n"
+        "%VZ%\n";
+
+
 const QString s_template_poly =
         "  0\n"
         "POLYLINE\n"
@@ -383,7 +434,7 @@ const QString s_template_poly =
         "  5\n"
         "%HANDLE%\n"
         "  8\n"
-        "0\n";
+        "%LAYER%\n";
 
 const QString s_template_vertex =
         "  0\n"
@@ -391,7 +442,7 @@ const QString s_template_vertex =
         "  5\n"
         "%HANDLE%\n"
         "  8\n"
-        "0\n"
+        "%LAYER%\n"
         " 10\n"
         "%VX%\n"
         " 20\n"
