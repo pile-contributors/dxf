@@ -733,7 +733,7 @@ bool DxfWriter::startPolyline (const QString &layer, UserMsg &um)
         (*stream_) << "  0\n"
                       "POLYLINE\n"
                       "  5\n"
-                   << next_handle_ << "\n"
+                   << QString::number (next_handle_++, 16) << "\n"
                       "  8\n"
                    << layer << "\n"
                       " 66\n"
@@ -745,7 +745,6 @@ bool DxfWriter::startPolyline (const QString &layer, UserMsg &um)
                       " 30\n"
                       "0.0\n";
 
-        ++next_handle_;
         b_ret = statusOk (um);
         break;
     }
@@ -764,11 +763,10 @@ bool DxfWriter::endPolyline(UserMsg &um)
         (*stream_) << "  0\n"
                       "SEQEND\n"
                       "  5\n"
-                   << next_handle_ << "\n"
+                   << QString::number (next_handle_++, 16) << "\n"
                       "  8\n"
                       "0\n";
 
-        ++next_handle_;
         b_ret = statusOk (um);
         break;
     }
@@ -784,7 +782,7 @@ void DxfWriter::appendVertex (double x, double y, double z)
     (*stream_) << "  0\n"
                   "VERTEX\n"
                   "  5\n"
-               << next_handle_ << "\n"
+               << QString::number (next_handle_++, 16) << "\n"
                   "  8\n"
                   "0\n"
                   " 10\n"
@@ -794,7 +792,6 @@ void DxfWriter::appendVertex (double x, double y, double z)
                   " 30\n"
                << z << "\n";
 
-    ++next_handle_;
 }
 /* ========================================================================= */
 
@@ -805,7 +802,7 @@ void DxfWriter::appendPoint (
     (*stream_) << "  0\n"
                   "POINT\n"
                   "  5\n"
-               << next_handle_ << "\n"
+               << QString::number (next_handle_++, 16) << "\n"
                   "  8\n"
                << layer << "\n"
                   " 10\n"
@@ -815,7 +812,6 @@ void DxfWriter::appendPoint (
                   " 30\n"
                << z << "\n";
 
-    ++next_handle_;
 }
 /* ========================================================================= */
 
@@ -827,7 +823,7 @@ void DxfWriter::appendCircle (
     (*stream_) << "  0\n"
                   "CIRCLE\n"
                   "  5\n"
-               << next_handle_ << "\n"
+               << QString::number (next_handle_++, 16) << "\n"
                   "  8\n"
                << layer << "\n"
                   " 10\n"
@@ -839,7 +835,6 @@ void DxfWriter::appendCircle (
                   " 40\n"
                << radius << "\n";
 
-    ++next_handle_;
 }
 /* ========================================================================= */
 
@@ -852,7 +847,7 @@ void DxfWriter::appendText (
     (*stream_) << "  0\n"
                   "TEXT\n"
                   "  5\n"
-               << next_handle_ << "\n"
+               << QString::number (next_handle_++, 16) << "\n"
                   "  8\n"
                << layer << "\n"
                   " 10\n"
@@ -868,7 +863,6 @@ void DxfWriter::appendText (
                   " 50\n"
                << deg_rotation << "\n";
 
-    ++next_handle_;
 }
 /* ========================================================================= */
 
