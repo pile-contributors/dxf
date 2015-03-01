@@ -33,7 +33,7 @@
 //
 /*  DEFINITIONS    --------------------------------------------------------- */
 
-QString s_template_file =
+const QString s_template_file =
         "%HEADER_SECTION%\n"
         "%TABLES_SECTION%\n"
         "%BLOCKS_SECTION%\n"
@@ -41,11 +41,34 @@ QString s_template_file =
         "  0\n"
         "EOF\n";
 
-QString s_template_blocks_section =
+
+const QString s_template_block_def =
         "  0\n"
-        "SECTION\n"
+        "BLOCK\n"
+        "  8\n"
+        "0\n"
         "  2\n"
-        "BLOCKS\n"
+        "%NAME%\n"
+        " 70\n"
+        "     0\n"
+        " 10\n"
+        "0.0\n"
+        " 20\n"
+        "0.0\n"
+        " 30\n"
+        "0.0\n"
+        "  3\n"
+        "%NAME%\n"
+        "  1\n"
+        "\n"
+        "  0\n"
+        "ENDBLK\n"
+        "  5\n"
+        "B\n"
+        "  8\n"
+        "0\n";
+
+const QString s_template_block_model =
         "  0\n"
         "BLOCK\n"
         "  8\n"
@@ -69,7 +92,9 @@ QString s_template_blocks_section =
         "  5\n"
         "B\n"
         "  8\n"
-        "0\n"
+        "0\n";
+
+const QString s_template_block_paper =
         "  0\n"
         "BLOCK\n"
         " 67\n"
@@ -97,15 +122,9 @@ QString s_template_blocks_section =
         " 67\n"
         "     1\n"
         "  8\n"
-        "0\n"
-        "  0\n"
-        "ENDSEC\n";
+        "0\n";
 
-QString s_template_tables_section =
-        "  0\n"
-        "SECTION\n"
-        "  2\n"
-        "TABLES\n"
+const QString s_template_tables_section =
         "%VPORTS_TABLE%\n"
         "%LTYPE_TABLE%\n"
         "%LAYER_TABLE%\n"
@@ -113,11 +132,9 @@ QString s_template_tables_section =
         "%APPID_TABLE%\n"
         "%VIEW_TABLE%\n"
         "%UCS_TABLE%\n"
-        "%DIMSTYLE_TABLE%\n"
-        "  0\n"
-        "ENDSEC\n";
+        "%DIMSTYLE_TABLE%\n";
 
-QString s_template_lay_entry =
+const QString s_template_lay_entry =
         "  0\n"
         "LAYER\n"
         "  2\n"
@@ -129,24 +146,10 @@ QString s_template_lay_entry =
         "  6\n"
         "CONTINUOUS\n";
 
-QString s_template_lay_table =
-        "  0\n"
-        "TABLE\n"
-        "  2\n"
-        "LAYER\n"
-        " 70\n"
-        "%ENT_COUNT6%\n"
-        "%LAYERS%"
-        "  0\n"
-        "ENDTAB\n";
+const QString s_template_lay_table =
+        "%LAYERS%";
 
-QString s_template_vports_table =
-        "  0\n"
-        "TABLE\n"
-        "  2\n"
-        "VPORT\n"
-        " 70\n"
-        "%ENT_COUNT6%\n"
+const QString s_template_vports_table =
         "  0\n"
         "VPORT\n"
         "  2\n"
@@ -218,17 +221,9 @@ QString s_template_vports_table =
         " 77\n"
         "     0\n"
         " 78\n"
-        "     0\n"
-        "  0\n"
-        "ENDTAB\n";
+        "     0\n";
 
-QString s_template_ltype_table =
-        "  0\n"
-        "TABLE\n"
-        "  2\n"
-        "LTYPE\n"
-        " 70\n"
-        "%ENT_COUNT6%\n"
+const QString s_template_ltype_table =
         "  0\n"
         "LTYPE\n"
         "  2\n"
@@ -242,17 +237,9 @@ QString s_template_ltype_table =
         " 73\n"
         "     0\n"
         " 40\n"
-        "0.0\n"
-        "  0\n"
-        "ENDTAB\n";
+        "0.0\n";
 
-QString s_template_style_table =
-        "  0\n"
-        "TABLE\n"
-        "  2\n"
-        "STYLE\n"
-        " 70\n"
-        "%ENT_COUNT6%\n"
+const QString s_template_style_table =
         "  0\n"
         "STYLE\n"
         "  2\n"
@@ -272,17 +259,9 @@ QString s_template_style_table =
         "  3\n"
         "txt\n"
         "  4\n"
-        "\n"
-        "  0\n"
-        "ENDTAB\n";
+        "\n";
 
-QString s_template_dimstyle_table =
-        "  0\n"
-        "TABLE\n"
-        "  2\n"
-        "DIMSTYLE\n"
-        " 70\n"
-        "%ENT_COUNT6%\n"
+const QString s_template_dimstyle_table =
         "  0\n"
         "DIMSTYLE\n"
         "  2\n"
@@ -366,57 +345,24 @@ QString s_template_dimstyle_table =
         "177\n"
         "     0\n"
         "178\n"
-        "     0\n"
-        "  0\n"
-        "ENDTAB\n";
+        "     0\n";
 
-QString s_template_appid_table =
-        "  0\n"
-        "TABLE\n"
-        "  2\n"
-        "APPID\n"
-        " 70\n"
-        "%ENT_COUNT6%\n"
+const QString s_template_appid_table =
         "  0\n"
         "APPID\n"
         "  2\n"
         "ACAD\n"
         " 70\n"
-        "     0\n"
-        "  0\n"
-        "ENDTAB\n";
+        "     0\n";
 
-QString s_template_view_table =
-        "  0\n"
-        "TABLE\n"
-        "  2\n"
-        "VIEW\n"
-        " 70\n"
-        "%ENT_COUNT6%\n"
-        "  0\n"
-        "ENDTAB\n";
+const QString s_template_view_table = "";
 
-QString s_template_ucs_table =
-        "  0\n"
-        "TABLE\n"
-        "  2\n"
-        "UCS\n"
-        " 70\n"
-        "%ENT_COUNT6%\n"
-        "  0\n"
-        "ENDTAB\n";
+const QString s_template_ucs_table = "";
 
+const QString s_template_entities_section =
+        "%ENTITIES%\n";
 
-QString s_template_entities_section =
-        "  0\n"
-        "SECTION\n"
-        "  2\n"
-        "ENTITIES\n"
-        "%ENTITIES%\n"
-        "  0\n"
-        "ENDSEC\n";
-
-QString s_template_poly =
+const QString s_template_poly =
         "  0\n"
         "POLYLINE\n"
         "  5\n"
@@ -439,7 +385,7 @@ QString s_template_poly =
         "  8\n"
         "0\n";
 
-QString s_template_vertex =
+const QString s_template_vertex =
         "  0\n"
         "VERTEX\n"
         "  5\n"
@@ -454,11 +400,7 @@ QString s_template_vertex =
         "%VZ%\n";
 
 
-QString s_template_header_section =
-        "  0\n"
-        "SECTION\n"
-        "  2\n"
-        "HEADER\n"
+const QString s_template_header_section =
         "  9\n"
         "$ACADVER\n"
         "  1\n"
@@ -830,7 +772,7 @@ QString s_template_header_section =
         "  9\n"
         "$HANDSEED\n"
         "  5\n"
-        "4D\n"
+        "FFFFF\n"
         "  9\n"
         "$SURFTAB1\n"
         " 70\n"
@@ -1014,9 +956,7 @@ QString s_template_header_section =
         "  9\n"
         "$PSLTSCALE\n"
         " 70\n"
-        "     1\n"
-        "  0\n"
-        "ENDSEC\n";
+        "     1\n";
 
 
 

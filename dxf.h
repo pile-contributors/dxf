@@ -2,7 +2,7 @@
 /* ------------------------------------------------------------------------- */
 /*!
   \file			dxf.h
-  \date			July 2014
+  \date			March 2015
   \author		Nicu Tofan <nicu.tofan@gmail.com>
 
   \brief		Contains the definition for an input file
@@ -57,6 +57,20 @@ class DXF_EXPORT Dxf {
     /*  DEFINITIONS    ----------------------------------------------------- */
 
 public:
+
+    enum BaseColors {
+        COLOR_RED = 1,
+        COLOR_YELLOW = 2,
+        COLOR_GREEN = 3,
+        COLOR_CYAN = 4,
+        COLOR_BLUE = 5,
+        COLOR_MAGENTA = 6,
+        COLOR_WHITE_BLACK = 7,
+        COLOR_DARK_GRAY = 8,
+        COLOR_LIGHT_GRAY = 9,
+        // 10-255 = various shades of above
+    };
+
 
     /*  DEFINITIONS    ===================================================== */
     //

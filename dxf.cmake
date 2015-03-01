@@ -18,9 +18,11 @@ macro    (dxfInit
 
     # compose the list of headers and sources
     set(DXF_HEADERS
-        "dxf.h")
+        "dxf.h"
+        "dxfwriter.h")
     set(DXF_SOURCES
-        "dxf.cc")
+        "dxf.cc"
+        "dxfwriter.cc")
 
     pileSetSources(
         "${DXF_INIT_NAME}"

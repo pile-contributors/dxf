@@ -2,7 +2,7 @@
 /* ------------------------------------------------------------------------- */
 /*!
   \file			dxf.cc
-  \date			July 2014
+  \date			March 2015
   \author		Nicu Tofan <nicu.tofan@gmail.com>
 
   \brief		Contains the definition for an input file
@@ -58,8 +58,6 @@
 #else
 #define DXF_TRACE_EXIT
 #endif
-
-#include "string_templates.h"
 
 /*  DEFINITIONS    ========================================================= */
 //
