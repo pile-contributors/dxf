@@ -3,5 +3,5 @@ if (NOT DXF_BUILD_MODE)
 endif ()
 
 include(pile_support)
-pileInclude (Dxf)
+pileInclude (DXF)
 dxfInit(${DXF_BUILD_MODE})

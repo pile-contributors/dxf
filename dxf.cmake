@@ -13,7 +13,7 @@ macro    (dxfInit
 
     # default name
     if (NOT DXF_INIT_NAME)
-        set(DXF_INIT_NAME "Dxf")
+        set(DXF_INIT_NAME "DXF")
     endif ()
 
     # compose the list of headers and sources

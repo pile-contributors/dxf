@@ -1,7 +1,7 @@
 /**
  * @file dxf-private.h
- * @brief Declarations for Dxf class
- * @author Nicu Tofan <nicu.tofan@gmail.com>
+ * @brief Declarations for DXF class
+ * @author 
  * @copyright Copyright 2014 piles contributors. All rights reserved.
  * This file is released under the
  * [MIT License](http://opensource.org/licenses/mit-license.html)

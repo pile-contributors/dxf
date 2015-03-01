@@ -1,41 +1,95 @@
-/**
- * @file dxf.cc
- * @brief Definitions for Dxf class.
- * @author Nicu Tofan <nicu.tofan@gmail.com>
- * @copyright Copyright 2014 piles contributors. All rights reserved.
- * This file is released under the
- * [MIT License](http://opensource.org/licenses/mit-license.html)
- */
+/* ========================================================================= */
+/* ------------------------------------------------------------------------- */
+/*!
+  \file			dxf.cc
+  \date			July 2014
+  \author		Nicu Tofan <nicu.tofan@gmail.com>
+
+  \brief		Contains the definition for an input file
+
+
+*//*
+
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Please read COPYING and README files in root folder
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+/* ------------------------------------------------------------------------- */
+/* ========================================================================= */
+//
+//
+//
+//
+/*  INCLUDES    ------------------------------------------------------------ */
 
 #include "dxf.h"
-#include "dxf-private.h"
 
-/**
- * @class Dxf
- *
- * Detailed description.
- */
+#include <QFile>
+#include <QFileInfo>
+#include <QTextStream>
+#include <QChar>
+#include <QString>
+#include <QStringList>
+#include <QDate>
+#include <QTime>
+
+/*  INCLUDES    ============================================================ */
+//
+//
+//
+//
+/*  DEFINITIONS    --------------------------------------------------------- */
+
+#if DEBUG_OFF
+#define DXF_DBG DBG_PMESSAGE
+#else
+#define DXF_DBG black_hole
+#endif
+
+#if DEBUG_OFF
+#define DXF_TRACE_ENTRY DBG_TRACE_ENTRY
+#else
+#define DXF_TRACE_ENTRY
+#endif
+
+#if DEBUG_OFF
+#define DXF_TRACE_EXIT DBG_TRACE_EXIT
+#else
+#define DXF_TRACE_EXIT
+#endif
+
+#include "string_templates.h"
+
+/*  DEFINITIONS    ========================================================= */
+//
+//
+//
+//
+/*  CLASS    --------------------------------------------------------------- */
 
 /* ------------------------------------------------------------------------- */
-/**
- * Detailed description for constructor.
- */
-Dxf::Dxf()
+Dxf::Dxf (const QString & s_path) :
+    s_full_path_(s_path)
 {
     DXF_TRACE_ENTRY;
-
     DXF_TRACE_EXIT;
 }
 /* ========================================================================= */
 
 /* ------------------------------------------------------------------------- */
-/**
- * Detailed description for destructor.
- */
-Dxf::~Dxf()
+Dxf::~Dxf ()
 {
     DXF_TRACE_ENTRY;
-
     DXF_TRACE_EXIT;
 }
+/* ========================================================================= */
+
+/*  CLASS    =============================================================== */
+//
+//
+//
+//
+
+/* ------------------------------------------------------------------------- */
 /* ========================================================================= */

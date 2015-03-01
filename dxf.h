@@ -1,32 +1,115 @@
-/**
- * @file dxf.h
- * @brief Declarations for Dxf class
- * @author Nicu Tofan <nicu.tofan@gmail.com>
- * @copyright Copyright 2014 piles contributors. All rights reserved.
- * This file is released under the
- * [MIT License](http://opensource.org/licenses/mit-license.html)
- */
+/* ========================================================================= */
+/* ------------------------------------------------------------------------- */
+/*!
+  \file			dxf.h
+  \date			July 2014
+  \author		Nicu Tofan <nicu.tofan@gmail.com>
 
-#ifndef GUARD_DXF_H_INCLUDE
-#define GUARD_DXF_H_INCLUDE
+  \brief		Contains the definition for an input file
+
+
+*//*
+
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Please read COPYING and README files in root folder
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+/* ------------------------------------------------------------------------- */
+/* ========================================================================= */
+#ifndef __PILE_DXF_INC__
+#define __PILE_DXF_INC__
+//
+//
+//
+/*  INCLUDES    ------------------------------------------------------------ */
 
 #include <dxf/dxf-config.h>
 
-//! brief description
+#include "gdal.h"
+#include "ogr_srs_api.h"
+
+#include <QString>
+#include <QStringList>
+#include <QList>
+
+/*  INCLUDES    ============================================================ */
+//
+//
+//
+//
+/*  DEFINITIONS    --------------------------------------------------------- */
+
+/*  DEFINITIONS    ========================================================= */
+//
+//
+//
+//
+/*  CLASS    --------------------------------------------------------------- */
+
+//! Represents a full inputfile (top level node)
+///
 class DXF_EXPORT Dxf {
+    //
+    //
+    //
+    //
+    /*  DEFINITIONS    ----------------------------------------------------- */
 
 public:
 
-    //! Default constructor.
-    Dxf ();
-
-    //! Destructor.
-    virtual ~Dxf();
-
-protected:
+    /*  DEFINITIONS    ===================================================== */
+    //
+    //
+    //
+    //
+    /*  DATA    ------------------------------------------------------------ */
 
 private:
 
-};
+    //! the path to the file
+    QString s_full_path_;
 
-#endif // GUARD_DXF_H_INCLUDE
+    /*  DATA    ============================================================ */
+    //
+    //
+    //
+    //
+    /*  FUNCTIONS    ------------------------------------------------------- */
+
+public:
+
+    //! constructor
+    ///
+    explicit Dxf (const QString & s_path);
+
+    //! destructor
+    ///
+    virtual ~Dxf (void);
+
+    //! the path to the file
+    ///
+    inline const QString &
+    path () const {
+        return s_full_path_;
+    }
+
+
+
+    /*  FUNCTIONS    ======================================================= */
+    //
+    //
+    //
+    //
+
+};	/*	class Dxf	*/
+
+/*  CLASS    =============================================================== */
+//
+//
+//
+//
+
+#endif // __PILE_DXF_INC__
+/* ------------------------------------------------------------------------- */
+/* ========================================================================= */
