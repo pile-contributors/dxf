@@ -724,7 +724,7 @@ void DxfWriter::lyTableAdd (
 /* ========================================================================= */
 
 /* ------------------------------------------------------------------------- */
-bool DxfWriter::startPolyline (const QString &layer, UserMsg &um)
+bool DxfWriter::startPolyline (const QString &layer, UserMsg &um, int color)
 {
     bool b_ret = false;
     for (;;) {
@@ -735,8 +735,16 @@ bool DxfWriter::startPolyline (const QString &layer, UserMsg &um)
                       "  5\n"
                    << QString::number (next_handle_++, 16) << "\n"
                       "  8\n"
-                   << layer << "\n"
-                      " 66\n"
+                   << layer << "\n";
+
+        if ((color > -1) && (color < 256)) {
+            QString number = QString("%1").arg (color, 6, 10, QChar(' '));
+
+            (*stream_) << " 66\n"
+                       << number << "\n";
+        }
+
+        (*stream_) << " 66\n"
                       "     1\n"
                       " 10\n"
                       "0.0\n"
@@ -754,7 +762,7 @@ bool DxfWriter::startPolyline (const QString &layer, UserMsg &um)
 /* ========================================================================= */
 
 /* ------------------------------------------------------------------------- */
-bool DxfWriter::endPolyline(UserMsg &um)
+bool DxfWriter::endPolyline(UserMsg &um, int color)
 {
     bool b_ret = false;
     for (;;) {
@@ -767,6 +775,13 @@ bool DxfWriter::endPolyline(UserMsg &um)
                       "  8\n"
                       "0\n";
 
+        if ((color > -1) && (color < 256)) {
+            QString number = QString("%1").arg (color, 6, 10, QChar(' '));
+
+            (*stream_) << " 66\n"
+                       << number << "\n";
+        }
+
         b_ret = statusOk (um);
         break;
     }
@@ -776,7 +791,7 @@ bool DxfWriter::endPolyline(UserMsg &um)
 /* ========================================================================= */
 
 /* ------------------------------------------------------------------------- */
-void DxfWriter::appendVertex (double x, double y, double z)
+void DxfWriter::appendVertex (double x, double y, double z, int color)
 {
 
     (*stream_) << "  0\n"
@@ -792,12 +807,19 @@ void DxfWriter::appendVertex (double x, double y, double z)
                   " 30\n"
                << z << "\n";
 
+    if ((color > -1) && (color < 256)) {
+        QString number = QString("%1").arg (color, 6, 10, QChar(' '));
+
+        (*stream_) << " 66\n"
+                   << number << "\n";
+    }
+
 }
 /* ========================================================================= */
 
 /* ------------------------------------------------------------------------- */
 void DxfWriter::appendPoint (
-        const QString &layer, double x, double y, double z)
+        const QString &layer, double x, double y, double z, int color)
 {
     (*stream_) << "  0\n"
                   "POINT\n"
@@ -812,13 +834,19 @@ void DxfWriter::appendPoint (
                   " 30\n"
                << z << "\n";
 
+    if ((color > -1) && (color < 256)) {
+        QString number = QString("%1").arg (color, 6, 10, QChar(' '));
+
+        (*stream_) << " 66\n"
+                   << number << "\n";
+    }
 }
 /* ========================================================================= */
 
 /* ------------------------------------------------------------------------- */
 void DxfWriter::appendCircle (
         const QString &layer, double radius,
-        double x, double y, double z)
+        double x, double y, double z, int color)
 {
     (*stream_) << "  0\n"
                   "CIRCLE\n"
@@ -835,6 +863,12 @@ void DxfWriter::appendCircle (
                   " 40\n"
                << radius << "\n";
 
+    if ((color > -1) && (color < 256)) {
+        QString number = QString("%1").arg (color, 6, 10, QChar(' '));
+
+        (*stream_) << " 66\n"
+                   << number << "\n";
+    }
 }
 /* ========================================================================= */
 
@@ -842,7 +876,7 @@ void DxfWriter::appendCircle (
 void DxfWriter::appendText (
         const QString &layer, const QString &value,
         double x, double y, double z, double height,
-        double deg_rotation)
+        double deg_rotation, int color)
 {
     (*stream_) << "  0\n"
                   "TEXT\n"
@@ -862,6 +896,13 @@ void DxfWriter::appendText (
                << value << "\n"
                   " 50\n"
                << deg_rotation << "\n";
+
+    if ((color > -1) && (color < 256)) {
+        QString number = QString("%1").arg (color, 6, 10, QChar(' '));
+
+        (*stream_) << " 66\n"
+                   << number << "\n";
+    }
 
 }
 /* ========================================================================= */

@@ -222,24 +222,28 @@ public:
     bool
     startPolyline (
             const QString & layer,
-            UserMsg & um);
+            UserMsg & um,
+            int color = -1);
 
     bool
     endPolyline (
-            UserMsg & um);
+            UserMsg & um,
+            int color = -1);
 
     void
     appendVertex (
             double x,
             double y,
-            double z = 0.0);
+            double z = 0.0,
+            int color = -1);
 
     void
     appendPoint (
             const QString & layer,
             double x,
             double y,
-            double z = 0.0);
+            double z = 0.0,
+            int color = -1);
 
     void
     appendCircle (
@@ -247,7 +251,8 @@ public:
             double radius,
             double x,
             double y,
-            double z = 0.0);
+            double z = 0.0,
+            int color = -1);
 
     void
     appendText (
@@ -257,7 +262,8 @@ public:
             double y,
             double z = 0.0,
             double height = 1.0,
-            double deg_rotation = 0);
+            double deg_rotation = 0,
+            int color = -1);
 
 
 private:
