@@ -1,6 +1,6 @@
 
 # enable/disable cmake debug messages related to this pile
-set (DXF_DEBUG_MSG ON)
+set (DXF_DEBUG_MSG OFF)
 
 # make sure support code is present; no harm
 # in including it twice; the user, however, should have used
@@ -25,12 +25,7 @@ macro    (dxfInit
         "dxfwriter.cc")
     set(DXF_QT_MODS
         "Core")
-#    set(DXF_LIBS
-#        ${USERMSG_LIBRARY})
-    set(DXF_DEPENDENCIES
-        "UserMsg")
 
-message (STATUS "USERMSG_LIBRARY ------------  =${USERMSG_LIBRARY}")
     pileSetSources(
         "${DXF_INIT_NAME}"
         "${DXF_HEADERS}"
@@ -41,7 +36,7 @@ message (STATUS "USERMSG_LIBRARY ------------  =${USERMSG_LIBRARY}")
         "0;0;1;d"
         "ON"
         "${ref_cnt_use_mode}"
-        ""
+        "UserMsg"
         "category1"
         "tag1;tag2")
 
