@@ -823,7 +823,7 @@ const QString s_template_header_section =
         "  9\n"
         "$HANDSEED\n"
         "  5\n"
-        "FFFFF\n"
+        "7FFFFFFF\n"
         "  9\n"
         "$SURFTAB1\n"
         " 70\n"
